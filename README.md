@@ -16,13 +16,7 @@ A curated list of AI Security papers, standards, tools, and repositories for lea
   <img src="./assets/ai-security-1.png" alt="Keywords in AI Security" width="80%">
 </p>
 
-<p align="center">
-  <img src="./assets/ai-security-2.png" alt="AI Agent Security Workflow without Guardrails" width="80%">
-</p>
 
-<p align="center">
-  <img src="./assets/ai-security-3.png" alt="AI Agent Security Workflow with Guardrails" width="80%">
-</p>
 
 ---
 
