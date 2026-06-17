@@ -27,7 +27,7 @@ A curated list of AI Security papers, standards, tools, and repositories for lea
 </p>
 
 <p align="center">
-  <img src="./assets/ai-security-3.png" alt="AI Agent Security Workflow with Guardrails" width="100%">
+  <img src="./assets/ai-security-3.png" alt="AI Agent Security Workflow with Guardrails" width="70%">
 </p>
 
 ---
