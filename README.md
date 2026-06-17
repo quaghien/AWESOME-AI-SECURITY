@@ -12,9 +12,11 @@ A curated list of AI Security papers, standards, tools, and repositories for lea
   * [Agent AI Security Survey](#agent-ai-security-survey)
   * [Agentic SOC / Security Operations Automation](#agentic-soc--security-operations-automation)
   * [RL Red Teaming / Attacker-Defender Adversarial](#rl-red-teaming--attacker-defender-adversarial)
-* [Repo](#repo)
-* [Tool Comparison](#tool-comparison)
-* [AI Security Workflow](#ai-security-workflow)
+* [Enterprise AI Security Application Stack](#enterprise-ai-security-application-stack)
+
+  * [Application Repos](#application-repos)
+  * [Tool Comparison](#tool-comparison)
+  * [Implementation Workflow](#implementation-workflow)
 
 <p align="center">
   <img src="./assets/ai-security-1.png" alt="Keywords in AI Security" width="50%">
@@ -25,7 +27,7 @@ A curated list of AI Security papers, standards, tools, and repositories for lea
 </p>
 
 <p align="center">
-  <img src="./assets/ai-security-3.png" alt="AI Agent Security Workflow with Guardrails" width="100%">
+  <img src="./assets/ai-security-3.png" alt="AI Agent Security Workflow with Guardrails" width="90%">
 </p>
 
 ---
@@ -73,21 +75,23 @@ A curated list of AI Security papers, standards, tools, and repositories for lea
 
 ---
 
-## Repo
+## Enterprise AI Security Application Stack
 
-| Repo                                                                  | Category                     | Stage                 | Short Note                                                                  |
-| --------------------------------------------------------------------- | ---------------------------- | --------------------- | --------------------------------------------------------------------------- |
-| [promptfoo / promptfoo](https://github.com/promptfoo/promptfoo)       | LLM Testing / Red Team       | Dev & CI/CD           | Test prompts, RAGs, agents, regressions, and security cases before deploy   |
-| [NVIDIA / garak](https://github.com/NVIDIA/garak)                     | LLM Vulnerability Scanner    | Security Audit        | Scan LLM apps for jailbreaks, prompt injection, leakage, toxicity, and more |
-| [microsoft / PyRIT](https://github.com/microsoft/PyRIT)               | GenAI Red Team Framework     | Security Audit        | Automate single-turn and multi-turn adversarial testing                     |
-| [NVIDIA / SkillSpector](https://github.com/NVIDIA/SkillSpector)       | Agent Skill Security         | Supply Chain Security | Scan third-party agent skills before installation                           |
-| [snyk / agent-scan](https://github.com/snyk/agent-scan)               | Agent / MCP Security Scanner | Supply Chain Security | Scan AI agents, MCP servers, skills, secrets, and risky tool descriptions   |
-| [protectai / llm-guard](https://github.com/protectai/llm-guard)       | Runtime Input / Output Guard | Production Runtime    | Detect and sanitize unsafe prompts, responses, PII, secrets, and injections |
-| [NVIDIA-NeMo / Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | Runtime Guardrails           | Production Runtime    | Add programmable rails for input, dialog flow, retrieval, tools, and output |
+This section focuses on practical tools that can be applied in real AI application development, security testing, agent supply-chain review, and production runtime protection.
 
----
+### Application Repos
 
-## Tool Comparison
+| Repo                                                                  | Category                     | Enterprise Use Case       | Short Note                                                                  |
+| --------------------------------------------------------------------- | ---------------------------- | ------------------------- | --------------------------------------------------------------------------- |
+| [promptfoo / promptfoo](https://github.com/promptfoo/promptfoo)       | LLM Testing / Red Team       | Dev, CI/CD, Regression    | Test prompts, RAGs, agents, regressions, and security cases before deploy   |
+| [NVIDIA / garak](https://github.com/NVIDIA/garak)                     | LLM Vulnerability Scanner    | Security Audit            | Scan LLM apps for jailbreaks, prompt injection, leakage, toxicity, and more |
+| [microsoft / PyRIT](https://github.com/microsoft/PyRIT)               | GenAI Red Team Framework     | Security Audit            | Automate single-turn and multi-turn adversarial testing                     |
+| [NVIDIA / SkillSpector](https://github.com/NVIDIA/SkillSpector)       | Agent Skill Security         | Agent Supply Chain Review | Scan third-party agent skills before installation                           |
+| [snyk / agent-scan](https://github.com/snyk/agent-scan)               | Agent / MCP Security Scanner | Agent / MCP Risk Review   | Scan AI agents, MCP servers, skills, secrets, and risky tool descriptions   |
+| [protectai / llm-guard](https://github.com/protectai/llm-guard)       | Runtime Input / Output Guard | Runtime Protection        | Detect and sanitize unsafe prompts, responses, PII, secrets, and injections |
+| [NVIDIA-NeMo / Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) | Runtime Guardrails           | Runtime Policy Control    | Add programmable rails for input, dialog flow, retrieval, tools, and output |
+
+### Tool Comparison
 
 | Tool                                                         | Test Before Deploy | Real-Time Protection | Agent Security | Prompt Injection | Jailbreak | Data Leakage | Tool Misuse | Skill / Plugin / MCP Risk |
 | ------------------------------------------------------------ | -----------------: | -------------------: | -------------: | ---------------: | --------: | -----------: | ----------: | ------------------------: |
@@ -105,14 +109,12 @@ Legend:
 * ⚠️ Partial fit / depends on setup
 * ❌ Not the main purpose
 
----
-
-## AI Security Workflow
+### Implementation Workflow
 
 ```text
-[ Development & Deployment ]
+[ Enterprise AI Security Application Stack ]
 
-1. Dev & CI/CD
+1. Development & CI/CD
    └── promptfoo
        ├── Test prompt behavior
        ├── Test RAG quality
@@ -120,7 +122,7 @@ Legend:
        ├── Run regression tests
        └── Integrate into GitHub Actions / CI pipeline
 
-2. Security Audit
+2. Pre-Deployment Security Audit
    ├── garak
    │   ├── Scan common LLM vulnerabilities
    │   ├── Test prompt injection
@@ -134,7 +136,7 @@ Legend:
        ├── Evaluate agent behavior under attack
        └── Test tool misuse and sensitive data leakage
 
-3. Supply Chain Security
+3. Agent Supply Chain & MCP Security
    ├── SkillSpector
    │   ├── Scan third-party agent skills
    │   ├── Detect risky instructions
@@ -149,10 +151,7 @@ Legend:
        ├── Detect secrets and unsafe credential handling
        └── Check agent supply chain before use
 
-
-[ Production Runtime ]
-
-4. Real-Time Protection
+4. Production Runtime Protection
    ├── llm-guard
    │   ├── Input scanning
    │   ├── Output scanning
